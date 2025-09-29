@@ -11,11 +11,7 @@ import NavigationTabs from '../organisms/NavigationTabs'
 
 const LazyModal = lazy(() => import('./Modal'))
 
-interface MenuProps {
-  className?: string
-}
-
-export default function Menu({ className }: MenuProps) {
+export default function Menu() {
   const [isOpen, setIsOpen] = useState(false)
   const [isAnimating, setIsAnimating] = useState(false)
   const [pendingPath, setPendingPath] = useState<string | null>(null)

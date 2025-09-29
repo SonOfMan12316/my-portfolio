@@ -1,6 +1,4 @@
 import SectionTemplate from '@/templates/SectionTemplate'
-import TitleAndSubtitleSection from '../molecules/TitleAndSubtitleSection'
-import Form from '@/app/components/organisms/Form'
 import Footer from './Footer'
 import HighlightText from '@/app/components/atoms/HighlightText'
 import { mergeClassNames } from '@/utils/classNames'
