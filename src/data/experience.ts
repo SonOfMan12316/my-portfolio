@@ -40,8 +40,8 @@ export const experiences: ExperienceInterface[] = [
   },
   {
     name: 'Mungin',
-    logo: '/work/stilingue.svg',
-    role: 'Front-End Developer',
+    logo: '/work/mungin.webp',
+    role: 'Front-End Engineer',
     type: 'contract',
     description:
       'Delivered responsive web applications for a fast-paced startup, enhancing user experience and performance across multiple platforms',
@@ -51,9 +51,27 @@ export const experiences: ExperienceInterface[] = [
       'Integrated 10+ dynamic API endpoints to fetch and render real-time data with optimal performance',
       'Reduced page load time by 35% through code refactoring and performance tuning',
     ],
-    start: '01/07/2023',
-    end: '15/08/2023',
+    start: '31/01/2021',
+    end: '31/04/2022',
     src: '',
     alt: 'Mungin',
+  },
+  {
+    name: 'Avetium Consult',
+    logo: '/work/avetium.webp',
+    role: 'Information Security Engineer',
+    type: 'part-time',
+    description:
+      'Supported diverse IT infrastructure with a focus on Linux and Windows security and configuration',
+    achievements: [
+      'Managed Active Directory roles and permissions',
+      'Deployed biometric systems and encrypted company devices',
+      'Installed and maintained routers, LANs, and printers',
+      'Conducted security awareness training and enforced compliance protocols  ',
+    ],
+    start: '16/07/2023',
+    end: '29/11/2023',
+    src: '',
+    alt: 'Avetium',
   },
 ]

@@ -33,8 +33,8 @@ export default function CoverSection() {
               >
                 <Image
                   src="/cover/avatar.webp"
-                  width={556}
-                  height={500}
+                  width={300}
+                  height={300}
                   priority
                   placeholder="empty"
                   alt="charles emanyo bitmoji"
@@ -65,12 +65,12 @@ export default function CoverSection() {
             >
               <Image
                 src="/cover/avatar.webp"
-                width={556}
-                height={500}
+                width={400}
+                height={400}
                 priority
                 placeholder="empty"
                 alt="charles emanyo bitmoji."
-                className="relative block z-10"
+                className="relative block z-10 "
               />
 
               <div
