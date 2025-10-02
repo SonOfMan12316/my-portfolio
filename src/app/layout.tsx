@@ -1,78 +1,74 @@
-import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
-import "./globals.css";
-import { Toaster } from "react-hot-toast";
+import type { Metadata } from 'next'
+import { Poppins } from 'next/font/google'
+import './globals.css'
+import { Toaster } from 'react-hot-toast'
 
 const poppinsSans = Poppins({
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-poppi-sans",
-  subsets: ["latin"],
-});
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-poppi-sans',
+  subsets: ['latin'],
+})
 
 export const metadata: Metadata = {
   title: {
-    default: "Matheus Almeida - Software Engineer Front End",
-    template: "%s | Matheus Almeida",
+    default: 'Emanyo Charles - Software Engineer Front End',
+    template: '%s | Emanyo Charles',
   },
   description:
-    "Software Engineer Front-End specialized in Vue, React, TypeScript, Tailwind, Node.js and Firebase. I transform ideas into modern, accessible, and high-performance digital experiences.",
-  authors: [{ name: "Matheus Almeida", url: "https://almeida-matheus.com" }],
-  creator: "Matheus Almeida",
-  publisher: "Matheus Almeida",
-  metadataBase: new URL("https://almeida-matheus.com"),
+    'Software Engineer Front-End specialized in Vue, React, TypeScript, Tailwind, Node.js and Firebase. I transform ideas into modern, accessible, and high-performance digital experiences.',
+  authors: [
+    { name: 'Emanyo Charles', url: 'https://emanyo-charles.vercel.app/' },
+  ],
+  creator: 'Emanyo Charles',
+  publisher: 'Emanyo Charles',
+  metadataBase: new URL('https://emanyo-charles.vercel.app/'),
   robots: {
     index: true,
     follow: true,
   },
   keywords: [
-    "Matheus Almeida",
-    "Frontend",
-    "Software Engineer",
-    "Desenvolvedor Frontend",
-    "Frontend Developer",
-    "Vue",
-    "React",
-    "Tailwind",
-    "JavaScript",
-    "Next.js",
-    "HTML",
-    "CSS",
-    "Express",
-    "MongoBD",
-    "Firebase",
-    "Programador Frontend",
-    "Engenheiro de Software",
-    "Web Developer",
-    "Micro-SaaS",
-    "UI Developer",
-    "Developer Portfolio",
+    'Emanyo Charles',
+    'Frontend',
+    'Software Engineer',
+    'Frontend Developer',
+    'Vue',
+    'React',
+    'Tailwind',
+    'JavaScript',
+    'Next.js',
+    'HTML',
+    'CSS',
+    'Express',
+    'MongoBD',
+    'Firebase',
+    'Web Developer',
+    'Micro-SaaS',
+    'UI Developer',
+    'Developer Portfolio',
   ],
   openGraph: {
     title:
-      "Matheus Almeida - Software Engineer Front End | Vue, React, Tailwind",
+      'Emanyo Charles - Software Engineer Front End | Vue, React, Tailwind',
     description:
-      "Software Engineer Front-End specialized in Vue, React, TypeScript, Tailwind, Node.js and Firebase. I transform ideas into modern, accessible, and high-performance digital experiences.",
-    url: "https://almeida-matheus.com",
-    siteName: "Matheus Almeida",
-    locale: "en_US",
-    type: "website",
+      'Software Engineer Front-End specialized in Vue, React, TypeScript, Tailwind, Node.js and Firebase. I transform ideas into modern, accessible, and high-performance digital experiences.',
+    url: 'https://emanyo-charles.vercel.app/',
+    siteName: 'Emanyo Charles',
+    locale: 'en_US',
+    type: 'website',
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
   },
-  category: "technology",
-  classification: "Software Engineer",
-  applicationName: "Matheus Almeida Portfolio",
-  verification: {
-    google: "zLhULd-U4o_BOSFwid6TZQZacqB-hte1fgytIbGqVMY",
-  },
-};
+  category: 'technology',
+  classification: 'Software Engineer',
+  applicationName: 'Emanyo Charles Portfolio',
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en">
@@ -81,5 +77,5 @@ export default function RootLayout({
         {children}
       </body>
     </html>
-  );
+  )
 }
