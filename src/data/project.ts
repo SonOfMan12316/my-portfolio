@@ -115,6 +115,16 @@ export const projects = [
     featured: false,
   },
   {
+    title: 'DMAR International',
+    about:
+      'DMAR International is a website I built for an independent marine consultancy. The site showcases their offshore assurance services: vessel readiness assessments, warranty surveys, and transport installation reviews, targeting engineering contractors across North Sea operations. Built to communicate technical credibility fast and clearly.',
+    technologies: [],
+    image: '/projects/dmar.png',
+    link: 'https://www.dmarinternational.com/',
+    categories: ['Production', 'Web'],
+    featured: false,
+  },
+  {
     title: 'Create Your Custom Chill Guy',
     about:
       'Create your custom Chill Guy meme with editable text, colors, and accessories, then copy or download the final image. Built as a playful UI product focused on fast interactions and clean client-side rendering.',
