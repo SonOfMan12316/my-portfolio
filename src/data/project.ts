@@ -13,6 +13,17 @@ export interface ProjectInterface {
 
 export const projects = [
   {
+    title: 'IntelliQuest',
+    about:
+      'IntelliQuest is a school management and AI learning platform I built for Nigerian secondary schools. Schools use it to run academics, fees, and exams; students use it to prep for JAMB, WAEC, and NECO with an AI tutor called Clara. The tricky part was shipping two separate products from one codebase: a B2B school portal and a B2C study app, without them stepping on each other.',
+    technologies: ['Next.js', 'TypeScript', 'Express.js'],
+    image: 'https://res.cloudinary.com/dolawuzw6/video/upload/so_0,f_jpg,q_auto/v1786233453/202608090053_xy8pst.jpg',
+    video: 'https://res.cloudinary.com/dolawuzw6/video/upload/v1786233453/202608090053_xy8pst.mp4',
+    link: 'https://www.intelliquest.app/',
+    categories: ['Production', 'Web', 'Full Stack'],
+    featured: false,
+  },
+  {
     title: 'Kinnected',
     about:
       'Kinnected is a family management platform I built solo from zero to production. Families use it to organize meals, tasks, shopping, calendars, and files. I handled everything the backend, the mobile app (iOS and Android), and making sure it stayed fast and reliable for 1,000+ users.',
