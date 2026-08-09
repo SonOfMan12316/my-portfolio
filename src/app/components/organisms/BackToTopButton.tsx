@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { FaArrowUp } from "react-icons/fa";
-
 import { NAVIGATION_TAB_INDEX, scrollIntoSection } from "./NavigationTabs";
 import { useTabs } from "@/contexts/TabsContext";
 
@@ -11,34 +10,26 @@ export default function BackToTopButton() {
   const { setActiveTab, setIsOnClickScrolling } = useTabs();
 
   useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.scrollY > 200) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-
-    window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
+    const toggle = () => setIsVisible(window.scrollY > 300);
+    window.addEventListener("scroll", toggle, { passive: true });
+    return () => window.removeEventListener("scroll", toggle);
   }, []);
 
   const scrollToTop = () => {
     setActiveTab(NAVIGATION_TAB_INDEX.HOME);
     setIsOnClickScrolling(true);
     scrollIntoSection(NAVIGATION_TAB_INDEX.HOME);
-
     setTimeout(() => setIsOnClickScrolling(false), 1200);
   };
 
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-20 p-4 rounded-full shadow-lg transition-all duration-300
-        bg-stone-800 hover:bg-stone-700 text-[var(--action)]
-        ${isVisible ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+      aria-label="Back to top"
+      className={`fixed bottom-5 right-5 sm:bottom-7 sm:right-7 z-20 p-3.5 border border-[#0C0A08]/15 bg-[#F7F4EE] text-[#0C0A08] shadow-sm hover:bg-[#0C0A08] hover:text-[#F7F4EE] hover:border-[#0C0A08] transition-all duration-300
+        ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"}`}
     >
-      <FaArrowUp size={18} />
+      <FaArrowUp size={14} />
     </button>
   );
 }
