@@ -1,7 +1,8 @@
 import PageLayout from '@/layouts/PageLayout'
 import CoverSection from '../app/components/organisms/CoverSection'
-import AboutSection from '@/app/components/organisms/AboutSection'
 import ProjectsSection from '@/app/components/organisms/ProjectsSection'
+import ExperiencesSection from '@/app/components/organisms/ExperiencesSection'
+import CapabilitiesSection from '@/app/components/organisms/CapabilitiesSection'
 import BlogSection from '@/app/components/organisms/BlogSection'
 import ContactSection from '@/app/components/organisms/ContactSection'
 
@@ -10,7 +11,8 @@ export default function HomeTemplate() {
     <PageLayout>
       <CoverSection />
       <ProjectsSection />
-      <AboutSection />
+      <ExperiencesSection />
+      <CapabilitiesSection />
       <BlogSection />
       <ContactSection />
     </PageLayout>

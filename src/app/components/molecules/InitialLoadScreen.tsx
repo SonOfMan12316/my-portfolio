@@ -7,34 +7,27 @@ export default function InitialLoadScreen() {
 
   useEffect(() => {
     const hasVisited = sessionStorage.getItem("hasVisited");
-    
+
     if (hasVisited) {
       setIsLoading(false);
       return;
     }
 
-    const hideTimeout = setTimeout(() => {
-      setIsLoading(false);
-      sessionStorage.setItem("hasVisited", "true");
-    }, 2000);
-
-    if (document.readyState === "complete") {
+    const hideAfter = () => {
       setTimeout(() => {
         setIsLoading(false);
         sessionStorage.setItem("hasVisited", "true");
-      }, 2000);
-    } else {
-      window.addEventListener("load", () => {
-        setTimeout(() => {
-          setIsLoading(false);
-          sessionStorage.setItem("hasVisited", "true");
-        }, 2000);
-      });
-    }
-
-    return () => {
-      clearTimeout(hideTimeout);
+      }, 1800);
     };
+
+    if (document.readyState === "complete") {
+      hideAfter();
+    } else {
+      window.addEventListener("load", hideAfter, { once: true });
+      // Fallback
+      const timer = setTimeout(hideAfter, 1800);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   if (!isLoading) return null;
@@ -44,32 +37,27 @@ export default function InitialLoadScreen() {
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed inset-0 flex items-center justify-center z-[9999] bg-black/90 backdrop-blur-md"
+      className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#0C0A08]"
     >
-      <div className="flex gap-2">
-        {[0, 1, 2].map((i) => (
-          <motion.div
-            key={i}
-            className="w-3 h-3 bg-[#ffae23] rounded-full"
-            initial={{
-              scale: 1,
-              opacity: 0.5,
-            }}
-            animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.5, 1, 0.5],
-            }}
-            transition={{
-              duration: 0.6,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: i * 0.15,
-              times: [0, 0.5, 1],
-            }}
-          />
-        ))}
-      </div>
+      {/* Monogram */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.6 }}
+        className="font-serif text-5xl font-light text-[#F7F4EE] mb-10 tracking-tight"
+        style={{ fontFamily: 'Georgia, serif' }}
+      >
+        CE
+        <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#E8542A] ml-1 mb-4 align-middle" />
+      </motion.div>
+
+      {/* Loading line */}
+      <motion.div
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ delay: 0.4, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        className="h-[1px] w-24 bg-[#E8542A] origin-left"
+      />
     </motion.div>
   );
 }
-

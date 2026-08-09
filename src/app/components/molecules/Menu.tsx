@@ -5,7 +5,6 @@ import Button from '../atoms/Button'
 import { HiMenuAlt4 } from 'react-icons/hi'
 import MenuItem from './MenuItem'
 import { useRouter, usePathname } from 'next/navigation'
-import FooterLabels from './FooterLabels'
 import { motion, AnimatePresence } from 'motion/react'
 import NavigationTabs from '../organisms/NavigationTabs'
 
@@ -21,16 +20,18 @@ export default function Menu() {
 
   const items = useMemo(
     () => [
-      { label: 'home', path: '/', navigation: <NavigationTabs isWithinMenu /> },
+      {
+        label: 'home',
+        path: '/',
+        navigation: <NavigationTabs isWithinMenu dark />,
+      },
       { label: 'projects', path: '/projects' },
     ],
     []
   )
 
   useEffect(() => {
-    items.forEach(({ path }) => {
-      router.prefetch(path)
-    })
+    items.forEach(({ path }) => router.prefetch(path))
   }, [items, router])
 
   const handleToggle = () => {
@@ -40,15 +41,12 @@ export default function Menu() {
   }
 
   const handleItemClick = (path: string) => {
-    if (path !== pathname) {
-      setPendingPath(path)
-    }
+    if (path !== pathname) setPendingPath(path)
     setIsOpen(false)
   }
 
   const handleAnimationEnd = () => {
     setIsAnimating(false)
-
     if (pendingPath) {
       router.push(pendingPath)
       setPendingPath(null)
@@ -61,7 +59,7 @@ export default function Menu() {
         onClick={handleToggle}
         disabled={isAnimating || isOpen}
         variant="secondary"
-        className="lg:hidden w-12 bg-transparent text-[var(--action)] border-none"
+        className="lg:hidden w-12 bg-transparent text-[#E8542A] border-none"
         disableAnimation
       >
         <AnimatePresence mode="wait" initial={false}>
@@ -74,7 +72,7 @@ export default function Menu() {
               transition={{ duration: 0.3 }}
               style={{ display: 'inline-block' }}
             >
-              <HiMenuAlt4 size={32} />
+              <HiMenuAlt4 size={28} />
             </motion.span>
           ) : (
             ''
@@ -88,10 +86,10 @@ export default function Menu() {
           onClose={() => setIsOpen(false)}
           onAnimationEnd={handleAnimationEnd}
           title="Menu"
-          className="flex flex-col h-full justify-between pb-8 pt-16"
+          className="flex flex-col h-full justify-between pb-10 pt-16"
         >
           <div className="h-full w-full flex items-center">
-            <ul className="flex flex-col items-end gap-10 max-w-[80vw] w-full">
+            <ul className="flex flex-col items-end gap-8 w-full">
               {items.map(({ label, path, navigation }, index) => (
                 <li
                   className="w-full"
@@ -99,14 +97,15 @@ export default function Menu() {
                   onClick={() => handleItemClick(path)}
                 >
                   <MenuItem path={path} label={label} />
-
-                  <div className="py-4">{navigation}</div>
+                  <div className="py-3">{navigation}</div>
                 </li>
               ))}
             </ul>
           </div>
 
-          <FooterLabels disableAnimation />
+          <p className="text-xs text-[#4A4540] text-right">
+            © 2026 Charles Emanyo
+          </p>
         </LazyModal>
       </Suspense>
     </>

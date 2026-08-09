@@ -53,10 +53,7 @@ export default function Modal({
     };
 
     node.addEventListener("animationend", handleAnimationEnd);
-
-    return () => {
-      node.removeEventListener("animationend", handleAnimationEnd);
-    };
+    return () => node.removeEventListener("animationend", handleAnimationEnd);
   }, [isClosing, onAnimationEnd]);
 
   if (!shouldRender) return null;
@@ -70,23 +67,25 @@ export default function Modal({
       <div
         ref={modalRef}
         className={mergeClassNames(
-          "h-dvh w-full px-4 flex flex-col items-center justify-center",
-          "bg-[var(--color-background)]/60 backdrop-blur-3xl",
+          "h-dvh w-full px-6 flex flex-col items-center justify-center",
+          "bg-[#0C0A08] text-[#F7F4EE]",
           "transition-all duration-300 ease-in-out",
           animationClass
         )}
       >
         {title && (
           <div className="sm:hidden flex items-center gap-2 absolute w-full justify-start max-w-[var(--page-width)] top-0 mt-5 ml-16">
-            <div className="bg-transparent text-xl">{title}</div>
-            <div className="w-36 h-0.5 border border-[var(--action)]"></div>
+            <div className="bg-transparent text-xl text-[#9B9490] font-serif">
+              {title}
+            </div>
+            <div className="w-24 h-px bg-[#E8542A] opacity-60" />
           </div>
         )}
         <div className="flex absolute w-full justify-end max-w-[var(--page-width)] top-0">
           <Button
             onClick={onClose}
             variant="secondary"
-            className="w-12 bg-transparent mt-2 mr-4 text-[var(--action)] border-none"
+            className="w-12 bg-transparent mt-2 mr-4 text-[#E8542A] border-none"
             disableAnimation
           >
             <AnimatePresence mode="wait" initial={false}>
@@ -109,7 +108,7 @@ export default function Modal({
         </div>
 
         <div
-          className={mergeClassNames("max-w-[var(--page-width)]", className)}
+          className={mergeClassNames("w-full max-w-[var(--page-width)]", className)}
         >
           {children}
         </div>

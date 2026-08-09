@@ -18,9 +18,9 @@ export default function SectionTemplate({
   return (
     <div
       className={mergeClassNames(
-        "w-full pt-24 pb-16 sm:pt-28 sm:pb-20 scroll-mt-24",
+        "w-full py-24 sm:py-32 scroll-mt-20",
         noPaddingInline ? "" : PAGE_GUTTER,
-        isTranparentBackgroud ? "" : "bg-[var(--color-background)]",
+        isTranparentBackgroud ? "" : "bg-[#F7F4EE]",
         className
       )}
       id={id}
