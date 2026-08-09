@@ -1,30 +1,39 @@
-import AnimatedComponent from '../molecules/AnimatedComponent'
-import Logo from '../molecules/Logo'
-import Menu from '../molecules/Menu'
-import PageTemplate from '@/templates/PageTemplate'
+'use client'
+
+import { useEffect, useState } from 'react'
+import { motion } from 'motion/react'
+import { mergeClassNames } from '@/utils/classNames'
 import NavigationTabs from './NavigationTabs'
-import { mergeClassNames, PAGE_CONTAINER, PAGE_GUTTER } from '@/utils/classNames'
+import Menu from '../molecules/Menu'
 
 export default function Header() {
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
-    <AnimatedComponent
-      HTMLtag="div"
-      className="fixed top-0 left-0 w-dvw z-50 border-b border-white/5 bg-[var(--color-background)]/70 backdrop-blur-2xl"
-      slideUp
+    <motion.header
+      initial={{ opacity: 0, y: -16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+      className={mergeClassNames(
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
+        scrolled
+          ? 'bg-[#0C0A08]/90 backdrop-blur-xl border-b border-[#F7F4EE]/6'
+          : 'bg-transparent'
+      )}
     >
-      <PageTemplate>
-        <div
-          className={mergeClassNames(
-            'flex items-center justify-between h-[72px] select-none',
-            PAGE_CONTAINER,
-            PAGE_GUTTER
-          )}
-        >
-          <Logo />
-          <NavigationTabs className="hidden lg:inline" />
-          <Menu />
-        </div>
-      </PageTemplate>
-    </AnimatedComponent>
+      <div className="flex items-center justify-end h-16 sm:h-18 w-full max-w-[1160px] mx-auto px-6">
+        {/* Desktop nav */}
+        <NavigationTabs className="hidden lg:flex" dark />
+
+        {/* Mobile menu trigger */}
+        <Menu />
+      </div>
+    </motion.header>
   )
 }

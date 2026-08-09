@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import { usePathname } from 'next/navigation'
 import { mergeClassNames } from '@/utils/classNames'
 import { useTabs } from '@/contexts/TabsContext'
@@ -9,8 +9,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 export const NAVIGATION_TAB_INDEX: Record<string, string> = {
   HOME: 'home',
   WORK: 'projects',
-  ABOUT: 'about',
-  BLOG: 'blog',
+  EXPERIENCE: 'experiences',
   CONTACT: 'contact',
 }
 
@@ -21,19 +20,20 @@ export const scrollIntoSection = (id: string) => {
 const tabsList = [
   { id: NAVIGATION_TAB_INDEX.HOME, label: 'Home' },
   { id: NAVIGATION_TAB_INDEX.WORK, label: 'Work' },
-  { id: NAVIGATION_TAB_INDEX.ABOUT, label: 'About' },
-  { id: NAVIGATION_TAB_INDEX.BLOG, label: 'Blog' },
+  { id: NAVIGATION_TAB_INDEX.EXPERIENCE, label: 'Experience' },
   { id: NAVIGATION_TAB_INDEX.CONTACT, label: 'Contact' },
 ]
 
 interface NavigationTabsProps {
   className?: string
   isWithinMenu?: boolean
+  dark?: boolean
 }
 
 export default function NavigationTabs({
   className,
   isWithinMenu = false,
+  dark = false,
 }: NavigationTabsProps) {
   const { activeTab, setActiveTab, setIsOnClickScrolling } = useTabs()
   const tabsRefs = useRef<(HTMLButtonElement | null)[]>([])
@@ -61,44 +61,40 @@ export default function NavigationTabs({
     setActiveTab(id)
     setIsOnClickScrolling(true)
     scrollIntoSection(id)
-
     setTimeout(() => setIsOnClickScrolling(false), 1200)
   }
+
+  const baseText = dark
+    ? 'text-[#9B9490] hover:text-[#F7F4EE]'
+    : 'text-[#6B6560] hover:text-[#0C0A08]'
+  const activeText = dark ? 'text-[#F7F4EE]' : 'text-[#0C0A08]'
 
   return (
     <nav
       className={mergeClassNames(
-        'flex space-x-6 relative',
-        isWithinMenu ? 'flex-col items-end gap-2' : 'flex-row',
+        'flex relative',
+        isWithinMenu ? 'flex-col items-end gap-3' : 'flex-row gap-7',
         className
       )}
     >
       {tabs.map((tab, idx) => (
         <button
           key={tab.id}
-          ref={(el) => {
-            tabsRefs.current[idx] = el
-          }}
-          onClick={(e) => {
-            e.preventDefault()
-            handleClick(tab.id)
-          }}
+          ref={(el) => { tabsRefs.current[idx] = el }}
+          onClick={() => handleClick(tab.id)}
           className={mergeClassNames(
-            'relative pb-1 text-sm tracking-wide transition-colors hover:text-white',
-            activeTab === tab.id
-              ? 'text-[var(--color-foreground)]'
-              : 'text-[var(--color-foreground)]/55',
-            isWithinMenu
-              ? 'text-xl mr-6 hover:text-[var(--color-foreground)]/40'
-              : ''
+            'relative pb-0.5 text-sm tracking-wide transition-colors duration-200',
+            activeTab === tab.id ? activeText : baseText,
+            isWithinMenu ? 'text-2xl font-serif font-light' : ''
           )}
         >
           {tab.label}
         </button>
       ))}
+
       {!isWithinMenu && (
         <motion.div
-          className="absolute -bottom-0.5 h-[1px] bg-[var(--action)]/70 rounded"
+          className="absolute -bottom-0.5 h-[1px] bg-[#E8542A]"
           animate={{ left: underlineProps.left, width: underlineProps.width }}
           transition={{ type: 'spring', stiffness: 300, damping: 30 }}
         />
