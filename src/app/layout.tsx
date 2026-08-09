@@ -1,19 +1,27 @@
 import type { Metadata } from 'next'
-import { Poppins } from 'next/font/google'
+import { Playfair_Display, Inter } from 'next/font/google'
 import './globals.css'
 import { Toaster } from 'react-hot-toast'
 import InitialLoadScreen from './components/molecules/InitialLoadScreen'
 import Script from 'next/script'
 
-const poppinsSans = Poppins({
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-  variable: '--font-poppi-sans',
+const playfair = Playfair_Display({
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-playfair',
   subsets: ['latin'],
+  display: 'swap',
+})
+
+const inter = Inter({
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-inter',
+  subsets: ['latin'],
+  display: 'swap',
 })
 
 export const metadata: Metadata = {
   title: {
-    default: 'Emanyo Charles - Full Stack & Mobile Engineer',
+    default: 'Emanyo Charles — Full Stack & Mobile Engineer',
     template: '%s | Emanyo Charles',
   },
   description:
@@ -50,8 +58,7 @@ export const metadata: Metadata = {
     'Developer Portfolio',
   ],
   openGraph: {
-    title:
-      'Emanyo Charles - Full Stack & Mobile Engineer',
+    title: 'Emanyo Charles — Full Stack & Mobile Engineer',
     description:
       'Full Stack & Mobile Engineer with 5+ years of experience building production-grade React and TypeScript products, fullstack systems, and cross-platform mobile apps.',
     url: 'https://emanyo-charles.vercel.app/',
@@ -61,7 +68,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Emanyo Charles - Full Stack & Mobile Engineer',
+    title: 'Emanyo Charles — Full Stack & Mobile Engineer',
     description:
       'Full Stack & Mobile Engineer with 5+ years of experience building production-grade React and TypeScript products, fullstack systems, and cross-platform mobile apps.',
   },
@@ -94,7 +101,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${poppinsSans.variable} antialiased`}>
+      <body className={`${playfair.variable} ${inter.variable} antialiased`}>
         <Script
           id="person-jsonld"
           type="application/ld+json"
