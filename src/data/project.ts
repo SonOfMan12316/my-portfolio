@@ -96,6 +96,25 @@ export const projects = [
     featured: false,
   },
   {
+    title: 'Shopcart',
+    about:
+      'A full-stack e-commerce store I built with a real shopping experience. Browse products by category or brand, manage a cart and wishlist, check out with Stripe, and track your orders — content is fully managed through Sanity CMS.',
+    technologies: [
+      'Next.js',
+      'TypeScript',
+      'Tailwind',
+      'Sanity',
+      'Stripe',
+      'Clerk',
+      'Zustand',
+    ],
+    image: '/projects/shopcart.png',
+    link: 'https://shopcartt.vercel.app/',
+    github: 'https://github.com/SonOfMan12316/Shopcart',
+    categories: ['Product', 'Web', 'Full Stack'],
+    featured: false,
+  },
+  {
     title: 'Create Your Custom Chill Guy',
     about:
       'Create your custom Chill Guy meme with editable text, colors, and accessories, then copy or download the final image. Built as a playful UI product focused on fast interactions and clean client-side rendering.',
