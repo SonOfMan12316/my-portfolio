@@ -9,6 +9,8 @@ export interface ProjectInterface {
   featured?: boolean
   liveOnMobile?: boolean
   video?: string
+  appStore?: string
+  playStore?: string
 }
 
 export const projects = [
@@ -41,6 +43,8 @@ export const projects = [
       'https://res.cloudinary.com/dolawuzw6/video/upload/v1782310277/Kinnected_jegccg.mp4',
     link: '',
     liveOnMobile: true,
+    appStore: 'https://apps.apple.com/sg/app/kinnected-app/id6758304487',
+    playStore: 'https://play.google.com/store/apps/details?id=fam.kinnected.app',
     categories: ['Featured', 'Production', 'Mobile', 'Full Stack'],
     featured: true,
   },
