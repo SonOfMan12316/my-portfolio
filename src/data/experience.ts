@@ -47,7 +47,7 @@ export const experiences: ExperienceInterface[] = [
     type: 'full-time',
     location: 'Lagos, Nigeria (Remote)',
     description:
-      'Led a team of 2–3 junior and mid-level engineers — reviewed their code, paired with them, and helped them level up.',
+      'Led a team of 2–3 junior and mid-level engineers reviewed their code, paired with them, and helped them level up.',
     achievements: [
       'Built a Vue.js admin portal for managing role-based access with real-time updates.',
       'Built a React workspace for medical centers and practitioners to handle patient records, consultations, nursing, pharmacy, laboratory, and radiography.',
