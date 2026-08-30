@@ -10,7 +10,7 @@ function HeroName({ line, delay = 0 }: { line: string; delay?: number }) {
   return (
     <span className="block overflow-hidden leading-[0.92] pb-[0.15em]" aria-hidden>
       <motion.span
-        className="block"
+        className="block bg-gradient-to-r from-[#0C0A08] via-[#0C0A08] to-[#0C0A08]/30 bg-clip-text text-transparent"
         initial={{ y: '105%' }}
         animate={{ y: '0%' }}
         transition={{ duration: 0.9, delay, ease: [0.16, 1, 0.3, 1] }}
@@ -126,6 +126,13 @@ export default function CoverSection() {
         </div>
 
         {/* Divider */}
+        <motion.div
+          aria-hidden
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ delay: 0.7, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-8 h-px w-full origin-left bg-[#0C0A08]/12 sm:mb-10"
+        />
 
         {/* Title + Specialization */}
         <motion.div
@@ -133,13 +140,30 @@ export default function CoverSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.85, duration: 0.7, ease: 'easeOut' }}
         >
-          <p className="text-base sm:text-2xl font-normal text-[#0C0A08] mb-2">
-            Engineering Lead &amp; Full Stack Engineer.
-          </p>
-          <p className="max-w-lg text-base sm:text-lg font-normal leading-7 text-[#0C0A08]/50">
-            Specializing in healthcare platforms, AI-powered products, and
-            startup environments,
-          </p>
+          <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between sm:gap-12">
+            <div>
+              <p className="text-base sm:text-2xl font-normal text-[#0C0A08] mb-2">
+                Engineering Lead &amp; Full Stack Engineer.
+              </p>
+              <p className="max-w-lg text-base sm:text-lg font-normal leading-7 text-[#0C0A08]/50">
+                Specializing in healthcare platforms, AI-powered products, and
+                startup environments,
+              </p>
+            </div>
+
+            <a
+              href="#contact"
+              className="group inline-flex shrink-0 items-center gap-2.5 self-start rounded-full border border-[#0C0A08]/15 bg-[#0C0A08]/[0.03] px-7 py-3.5 text-sm text-[#0C0A08] transition-colors duration-200 hover:border-[#0C0A08]/30 hover:bg-[#0C0A08]/[0.06] sm:self-auto"
+            >
+              Get in Touch
+              <span
+                aria-hidden
+                className="inline-block transition-transform duration-200 group-hover:translate-x-1"
+              >
+                →
+              </span>
+            </a>
+          </div>
         </motion.div>
       </div>
 
