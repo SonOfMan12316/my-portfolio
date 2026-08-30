@@ -20,7 +20,7 @@ export default function ContactSection() {
             className="font-serif font-bold text-[#0C0A08] leading-[0.92] tracking-tight"
             style={{ fontSize: 'clamp(3rem,8vw,6.5rem)' }}
           >
-            Let&apos;s build the<br />Next Big Thing.🚀
+            Let&apos;s make something<br />worth shipping.
           </h2>
         </AnimatedComponent>
 
