@@ -157,3 +157,13 @@ ul {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Custom cursor — the class is added by CustomCursor only on fine pointers */
+@media (pointer: fine) {
+  body.has-custom-cursor,
+  body.has-custom-cursor *,
+  body.has-custom-cursor button,
+  body.has-custom-cursor a {
+    cursor: none !important;
+  }
+}
