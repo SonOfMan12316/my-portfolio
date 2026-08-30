@@ -1,6 +1,7 @@
 import { experiences, ExperienceInterface } from '@/data/experience'
 import AnimatedComponent from '../molecules/AnimatedComponent'
-import { mergeClassNames, PAGE_CONTAINER } from '@/utils/classNames'
+import SectionHeader from '../molecules/SectionHeader'
+import { PAGE_CONTAINER } from '@/utils/classNames'
 
 function formatDateRange(start: string, end: string) {
   const parse = (s: string) => {
@@ -35,15 +36,10 @@ export default function ExperiencesSection() {
       className="w-full bg-[#F7F4EE] py-24 sm:py-32 scroll-mt-20"
     >
       <div className={PAGE_CONTAINER}>
-        {/* Section header */}
-        <AnimatedComponent HTMLtag="div" className="mb-12 sm:mb-16">
-          <p className="text-[10px] sm:text-[11px] tracking-[0.25em] uppercase text-[#E8542A] mb-3">
-            Experience
-          </p>
-          <h2 className="font-serif text-[clamp(2rem,5vw,3.25rem)] font-light text-[#0C0A08] leading-tight">
-            Where I&apos;ve worked.
-          </h2>
-        </AnimatedComponent>
+        <SectionHeader
+          title="Experience"
+          description="Teams I've built with, and what shipped."
+        />
 
         {/* Experience rows */}
         <div className="border-t border-[#0C0A08]/10">

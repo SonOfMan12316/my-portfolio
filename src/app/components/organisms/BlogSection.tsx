@@ -1,4 +1,5 @@
 import AnimatedComponent from '../molecules/AnimatedComponent'
+import SectionHeader from '../molecules/SectionHeader'
 import { blogPosts } from '@/data/blog'
 import { PAGE_CONTAINER } from '@/utils/classNames'
 import { FaArrowUpRightFromSquare } from 'react-icons/fa6'
@@ -19,15 +20,10 @@ export default function BlogSection() {
       className="w-full bg-[#F7F4EE] py-24 sm:py-32 scroll-mt-20"
     >
       <div className={PAGE_CONTAINER}>
-        {/* Header */}
-        <AnimatedComponent HTMLtag="div" className="mb-12 sm:mb-14">
-          <p className="text-[10px] sm:text-[11px] tracking-[0.25em] uppercase text-[#E8542A] mb-3">
-            Writing
-          </p>
-          <h2 className="font-serif text-[clamp(2rem,5vw,3.25rem)] font-light text-[#0C0A08] leading-tight">
-            Notes on engineering.
-          </h2>
-        </AnimatedComponent>
+        <SectionHeader
+          title="Writing"
+          description="Notes on engineering, shipped products, and hard-won lessons."
+        />
 
         {/* Post rows */}
         <div className="border-t border-[#0C0A08]/10">
